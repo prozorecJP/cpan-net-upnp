@@ -153,12 +153,18 @@ sub getposturl() {
 			}
 		}
 		else {
-			if ($location_url =~ m{http://([0-9a-z.-]+)(?::(\d+))?/(.*)}i) {
-                                my $port = $2 || 80;
+			if ($location_url =~ m{http://([0-9a-z.]+)[:]*([0-9]*)\/(.*)}i) {
 				if (defined($3) && 0 < length($3)) {
-					$ctrl_url = 'http://' . $1 . ":" . $port . $ctrl_url;
+					my ($_host, $_port, $_path) = ($1, $2, $3);
+					if ($ctrl_url =~ m<\A\/>) {
+						$ctrl_url = "http:\/\/" . $_host . ":" . $_port . $ctrl_url;
+					} elsif ($_path =~ /\/\z/) {
+						$ctrl_url = "http:\/\/" . $_host . ":" . $_port . "\/" . $_path . $ctrl_url;
+					} else {
+						$ctrl_url = "http:\/\/" . $_host . ":" . $_port . $ctrl_url;
+					}
 				} else {
-					$ctrl_url = 'http://' . $1 . ":" . $port . '/' . $ctrl_url;
+					$ctrl_url = "http:\/\/" . $1 . ":" . $2 . "\/" . $ctrl_url;
 				}
 			} else {
 				$ctrl_url = $location_url .  $ctrl_url;
