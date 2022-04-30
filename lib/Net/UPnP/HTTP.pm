@@ -115,7 +115,7 @@ REQUEST_HEADER
 	}
 
 	$res_content_len = 0;
-	if($res_header =~ m/^Content-Length[: ]*(\d+)/i ) {
+	if($res_header =~ m/^Content-Length[: ]*(\d+)/im ) {
 		$res_content_len = $1
 	}
 
