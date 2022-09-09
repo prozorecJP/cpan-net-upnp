@@ -1,5 +1,7 @@
-Net::UPnP version 1.4.6
-===========================
+# Net::UPnP
+
+![CPAN](https://img.shields.io/cpan/v/Net-UPnP)
+[![make](https://github.com/cybergarage/cpan-net-upnp/actions/workflows/make.yml/badge.svg)](https://github.com/cybergarage/cpan-net-upnp/actions/workflows/make.yml)
 
 The README is used to introduce the module and provide instructions on
 how to install the module, any machine dependencies it may have (for
@@ -12,7 +14,7 @@ archive can use it get an idea of the modules uses. It is usually a
 good idea to provide version information here so that people can
 decide whether fixes for the module are worth downloading.
 
-INSTALLATION
+## INSTALLATION
 
 To install this module type the following:
 
@@ -21,7 +23,7 @@ To install this module type the following:
    make test
    make install
 
-COPYRIGHT AND LICENCE
+## COPYRIGHT AND LICENCE
 
 Copyright (C) 2005 Satoshi Konno
 All rights reserved.
